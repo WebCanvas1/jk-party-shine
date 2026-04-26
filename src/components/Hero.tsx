@@ -7,8 +7,11 @@ const Hero = () => {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background" />
+        {/* 🔥 Increased image visibility */}
+        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-70" />
+
+        {/* 🔥 Reduced overlay darkness */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/40 to-background" />
       </div>
 
       <div className="container relative py-20 md:py-32 flex flex-col items-center text-center">
@@ -18,7 +21,6 @@ const Hero = () => {
           <Sparkles className="h-3 w-3" /> Melbourne · We come to you
         </span>
 
-        {/* 🔥 FIXED: Removed gold shimmer block */}
         <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-tight max-w-4xl">
           Premium <span className="text-gold">Party Hire</span> &amp;<br />
           Event Styling in <span className="text-neon-purple">Melbourne</span>
