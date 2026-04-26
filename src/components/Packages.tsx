@@ -1,15 +1,28 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import { packages } from "@/data/packages";
 
 const Packages = () => {
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [previewAlt, setPreviewAlt] = useState("");
+
   return (
     <section
       id="packages"
       className="relative py-20 md:py-28 bg-[radial-gradient(circle_at_top_left,#4c1d95_0%,#0a0115_60%,#000000_100%)]"
     >
-      {/* 🔥 Subtle glow effect */}
       <div className="absolute inset-0 bg-purple-700/10 blur-3xl pointer-events-none" />
+
+      {previewImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm pointer-events-none">
+          <img
+            src={previewImage}
+            alt={previewAlt}
+            className="max-h-[85vh] max-w-[85vw] rounded-2xl border border-primary/40 shadow-2xl glow-gold object-contain"
+          />
+        </div>
+      )}
 
       <div className="container relative">
         <div className="text-center max-w-2xl mx-auto mb-14">
@@ -26,9 +39,17 @@ const Packages = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {packages.map((p) => (
             <article key={p.slug} className="luxe-card rounded-2xl overflow-hidden flex flex-col group">
-              
-              {/* 🔥 UPDATED: Reduced height + show image from top */}
-              <div className="relative h-[220px] md:h-[260px] overflow-hidden">
+              <div
+                className="relative h-[220px] md:h-[260px] overflow-hidden cursor-zoom-in"
+                onMouseEnter={() => {
+                  setPreviewImage(p.image);
+                  setPreviewAlt(p.name);
+                }}
+                onMouseLeave={() => {
+                  setPreviewImage(null);
+                  setPreviewAlt("");
+                }}
+              >
                 <img
                   src={p.image}
                   alt={p.name}
