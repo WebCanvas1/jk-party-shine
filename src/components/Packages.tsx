@@ -4,9 +4,9 @@ import { packages } from "@/data/packages";
 
 const Packages = () => {
   return (
-    <section id="packages" className="py-20 md:py-28">
+    <section id="packages" className="py-12 md:py-16">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-10">
           <p className="text-xs uppercase tracking-[0.4em] text-primary mb-3">Our Packages</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-4">
             Curated <span className="text-gold">Luxury Setups</span>
@@ -20,7 +20,9 @@ const Packages = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {packages.map((p) => (
             <article key={p.slug} className="luxe-card rounded-2xl overflow-hidden flex flex-col group">
-              <div className="relative aspect-[4/5] overflow-hidden">
+              
+              {/* 🔥 Reduced image height */}
+              <div className="relative h-[260px] overflow-hidden">
                 <img
                   src={p.image}
                   alt={p.name}
@@ -30,12 +32,15 @@ const Packages = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               </div>
 
-              <div className="p-6 flex flex-col flex-1">
+              {/* 🔥 Reduced padding */}
+              <div className="p-4 flex flex-col flex-1">
                 <h3 className="font-serif text-xl mb-2 text-foreground">{p.name}</h3>
-                <p className="text-sm text-muted-foreground mb-4 italic">{p.tagline}</p>
+                <p className="text-sm text-muted-foreground mb-3 italic">{p.tagline}</p>
 
                 <p className="text-[11px] uppercase tracking-[0.25em] text-primary/80 mb-2">What's included</p>
-                <ul className="space-y-1.5 mb-6 flex-1">
+
+                {/* 🔥 Limit feature list height */}
+                <ul className="space-y-1.5 mb-4 flex-1 max-h-[120px] overflow-hidden">
                   {p.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 text-sm text-foreground/85">
                       <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
@@ -45,14 +50,14 @@ const Packages = () => {
                 </ul>
 
                 <div className="mt-auto">
-                  <div className="rounded-xl border border-primary/40 bg-gradient-to-r from-primary/15 via-primary/5 to-secondary/15 px-4 py-3 mb-3 text-center glow-gold">
+                  <div className="rounded-xl border border-primary/40 bg-gradient-to-r from-primary/15 via-primary/5 to-secondary/15 px-4 py-2 mb-3 text-center glow-gold">
                     <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Package Price</p>
-                    <p className="font-serif text-2xl text-gold leading-tight">{p.price}</p>
+                    <p className="font-serif text-xl text-gold leading-tight">{p.price}</p>
                   </div>
 
                   <Link
                     to={`/book?package=${encodeURIComponent(p.name)}`}
-                    className="w-full inline-flex justify-center items-center gap-2 bg-gradient-purple text-secondary-foreground px-5 py-3 rounded-full text-sm font-semibold hover:glow-purple transition-all"
+                    className="w-full inline-flex justify-center items-center gap-2 bg-gradient-purple text-secondary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:glow-purple transition-all"
                   >
                     Book Now
                   </Link>
