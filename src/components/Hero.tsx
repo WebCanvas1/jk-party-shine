@@ -7,11 +7,11 @@ const Hero = () => {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
-        {/* 🔥 Increased image visibility */}
-        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-70" />
+        {/* 🔥 Make image much more visible */}
+        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-90" />
 
-        {/* 🔥 Reduced overlay darkness */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/40 to-background" />
+        {/* 🔥 Replace dark overlay with subtle gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/50" />
       </div>
 
       <div className="container relative py-20 md:py-32 flex flex-col items-center text-center">
