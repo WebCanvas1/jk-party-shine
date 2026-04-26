@@ -26,7 +26,9 @@ const Packages = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {packages.map((p) => (
             <article key={p.slug} className="luxe-card rounded-2xl overflow-hidden flex flex-col group">
-              <div className="relative aspect-[4/5] overflow-hidden">
+              
+              {/* 🔥 UPDATED: Reduced image height */}
+              <div className="relative h-[220px] md:h-[260px] overflow-hidden">
                 <img
                   src={p.image}
                   alt={p.name}
