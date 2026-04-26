@@ -27,13 +27,13 @@ const Packages = () => {
           {packages.map((p) => (
             <article key={p.slug} className="luxe-card rounded-2xl overflow-hidden flex flex-col group">
               
-              {/* 🔥 UPDATED: Reduced image height */}
+              {/* 🔥 UPDATED: Reduced height + show image from top */}
               <div className="relative h-[220px] md:h-[260px] overflow-hidden">
                 <img
                   src={p.image}
                   alt={p.name}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               </div>
