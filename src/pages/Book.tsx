@@ -96,7 +96,6 @@ const Book = () => {
       <Header />
 
       <main className="flex-1 py-12 md:py-20 relative">
-        {/* subtle glow */}
         <div className="absolute inset-0 bg-purple-700/10 blur-3xl pointer-events-none" />
 
         <div className="container max-w-3xl relative">
@@ -125,7 +124,69 @@ const Book = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="luxe-card rounded-2xl p-6 md:p-10 space-y-5">
-              {/* form content unchanged */}
+
+              <Field label="Full Name" required>
+                <input required value={form.fullName} onChange={(e) => update("fullName", e.target.value)} className={inputCls} />
+              </Field>
+
+              <div className="grid sm:grid-cols-2 gap-5">
+                <Field label="Email" required>
+                  <input type="email" required value={form.email} onChange={(e) => update("email", e.target.value)} className={inputCls} />
+                </Field>
+                <Field label="Phone Number" required>
+                  <input type="tel" required value={form.phone} onChange={(e) => update("phone", e.target.value)} className={inputCls} />
+                </Field>
+              </div>
+
+              <Field label="Selected Package" required>
+                <select required value={form.package} onChange={(e) => update("package", e.target.value)} className={inputCls}>
+                  {packageOptions.map((n) => <option key={n}>{n}</option>)}
+                </select>
+              </Field>
+
+              <div className="grid sm:grid-cols-2 gap-5">
+                <Field label="Event Type">
+                  <select value={form.eventType} onChange={(e) => update("eventType", e.target.value)} className={inputCls}>
+                    {eventTypes.map((t) => <option key={t}>{t}</option>)}
+                  </select>
+                </Field>
+                <Field label="Number of Guests">
+                  <input type="number" min={1} value={form.guests} onChange={(e) => update("guests", e.target.value)} className={inputCls} />
+                </Field>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-5">
+                <Field label="Event Date" required>
+                  <input type="date" required value={form.eventDate} onChange={(e) => update("eventDate", e.target.value)} className={inputCls} />
+                </Field>
+                <Field label="Event Time">
+                  <input type="time" value={form.eventTime} onChange={(e) => update("eventTime", e.target.value)} className={inputCls} />
+                </Field>
+              </div>
+
+              <Field label="Event Location" required>
+                <input required value={form.location} onChange={(e) => update("location", e.target.value)} placeholder="Suburb / Address" className={inputCls} />
+              </Field>
+
+              <Field label="Theme / Colour Preference">
+                <input value={form.theme} onChange={(e) => update("theme", e.target.value)} className={inputCls} />
+              </Field>
+
+              <Field label="Additional Notes">
+                <textarea rows={4} value={form.notes} onChange={(e) => update("notes", e.target.value)} className={inputCls} />
+              </Field>
+
+              <label className="flex items-start gap-3 p-4 rounded-xl bg-secondary/10 border border-secondary/30 cursor-pointer">
+                <input type="checkbox" checked={form.deposit} onChange={(e) => update("deposit", e.target.checked)} className="mt-1 h-5 w-5 accent-primary" required />
+                <span className="text-sm text-foreground">
+                  I understand a <span className="text-primary font-semibold">$100 non-refundable deposit</span> is required to confirm booking.
+                </span>
+              </label>
+
+              <button type="submit" disabled={loading} className="w-full bg-gradient-gold text-primary-foreground py-4 rounded-full font-semibold">
+                {loading ? "Sending..." : "Submit Enquiry"}
+              </button>
+
             </form>
           )}
         </div>
@@ -135,5 +196,17 @@ const Book = () => {
     </div>
   );
 };
+
+const inputCls =
+  "w-full bg-input border border-border/60 rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30";
+
+const Field = ({ label, required, children }: any) => (
+  <div>
+    <label className="block text-sm font-medium mb-2 text-foreground">
+      {label} {required && <span className="text-primary">*</span>}
+    </label>
+    {children}
+  </div>
+);
 
 export default Book;
