@@ -14,6 +14,7 @@ const Packages = () => {
     >
       <div className="absolute inset-0 bg-purple-700/10 blur-3xl pointer-events-none" />
 
+      {/* 🔥 Preview modal */}
       {previewImage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm pointer-events-none">
           <img
@@ -39,23 +40,29 @@ const Packages = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {packages.map((p) => (
             <article key={p.slug} className="luxe-card rounded-2xl overflow-hidden flex flex-col group">
-              <div
-                className="relative h-[220px] md:h-[260px] overflow-hidden cursor-zoom-in"
-                onMouseEnter={() => {
-                  setPreviewImage(p.image);
-                  setPreviewAlt(p.name);
-                }}
-                onMouseLeave={() => {
-                  setPreviewImage(null);
-                  setPreviewAlt("");
-                }}
-              >
+              
+              <div className="relative h-[220px] md:h-[260px] overflow-hidden">
+                
                 <img
                   src={p.image}
                   alt={p.name}
                   loading="lazy"
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                 />
+
+                {/* 🔥 CENTER HOVER ZONE (2cm approx ~80px) */}
+                <div
+                  className="absolute top-1/2 left-1/2 w-[80px] h-[80px] -translate-x-1/2 -translate-y-1/2 cursor-zoom-in"
+                  onMouseEnter={() => {
+                    setPreviewImage(p.image);
+                    setPreviewAlt(p.name);
+                  }}
+                  onMouseLeave={() => {
+                    setPreviewImage(null);
+                    setPreviewAlt("");
+                  }}
+                />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               </div>
 
@@ -87,6 +94,7 @@ const Packages = () => {
                   </Link>
                 </div>
               </div>
+
             </article>
           ))}
         </div>
