@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Check } from "lucide-react";
 import { packages } from "@/data/packages";
 
 const Packages = () => {
@@ -27,19 +28,35 @@ const Packages = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-                <span className="absolute top-4 right-4 bg-gradient-gold text-primary-foreground text-xs font-bold px-3 py-1.5 rounded-full">
-                  {p.price}
-                </span>
               </div>
+
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="font-serif text-xl mb-2 text-foreground">{p.name}</h3>
-                <p className="text-sm text-muted-foreground mb-5 flex-1">{p.tagline}</p>
-                <Link
-                  to={`/book?package=${encodeURIComponent(p.name)}`}
-                  className="inline-flex justify-center items-center gap-2 bg-gradient-purple text-secondary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:glow-purple transition-all"
-                >
-                  Book Now
-                </Link>
+                <p className="text-sm text-muted-foreground mb-4 italic">{p.tagline}</p>
+
+                <p className="text-[11px] uppercase tracking-[0.25em] text-primary/80 mb-2">What's included</p>
+                <ul className="space-y-1.5 mb-6 flex-1">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-foreground/85">
+                      <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto">
+                  <div className="rounded-xl border border-primary/40 bg-gradient-to-r from-primary/15 via-primary/5 to-secondary/15 px-4 py-3 mb-3 text-center glow-gold">
+                    <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Package Price</p>
+                    <p className="font-serif text-2xl text-gold leading-tight">{p.price}</p>
+                  </div>
+
+                  <Link
+                    to={`/book?package=${encodeURIComponent(p.name)}`}
+                    className="w-full inline-flex justify-center items-center gap-2 bg-gradient-purple text-secondary-foreground px-5 py-3 rounded-full text-sm font-semibold hover:glow-purple transition-all"
+                  >
+                    Book Now
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
