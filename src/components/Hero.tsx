@@ -18,8 +18,9 @@ const Hero = () => {
           <Sparkles className="h-3 w-3" /> Melbourne · We come to you
         </span>
 
+        {/* 🔥 FIXED: Removed gold shimmer block */}
         <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-tight max-w-4xl">
-          Premium <span className="text-gold animate-shimmer bg-gradient-gold bg-clip-text text-transparent">Party Hire</span> &amp;<br />
+          Premium <span className="text-gold">Party Hire</span> &amp;<br />
           Event Styling in <span className="text-neon-purple">Melbourne</span>
         </h1>
 
@@ -30,7 +31,7 @@ const Hero = () => {
         <div className="mt-10 flex flex-col sm:flex-row gap-4">
           <a
             href="#packages"
-            className="bg-gradient-gold text-primary-foreground px-8 py-4 rounded-full font-semibold tracking-wide hover:scale-105 transition-transform animate-shimmer"
+            className="bg-gradient-gold text-primary-foreground px-8 py-4 rounded-full font-semibold tracking-wide hover:scale-105 transition-transform"
           >
             View Packages
           </a>
