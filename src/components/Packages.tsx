@@ -50,9 +50,12 @@ const Packages = () => {
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                 />
 
-                {/* 🔥 CENTER HOVER ZONE (2cm approx ~80px) */}
+                {/* ✅ Gradient overlay (FIXED) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent pointer-events-none" />
+
+                {/* ✅ Hover zone (FIXED) */}
                 <div
-                  className="absolute top-1/2 left-1/2 w-[80px] h-[80px] -translate-x-1/2 -translate-y-1/2 cursor-zoom-in"
+                  className="absolute top-1/2 left-1/2 z-20 w-[100px] h-[100px] -translate-x-1/2 -translate-y-1/2 cursor-zoom-in"
                   onMouseEnter={() => {
                     setPreviewImage(p.image);
                     setPreviewAlt(p.name);
@@ -63,7 +66,6 @@ const Packages = () => {
                   }}
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               </div>
 
               <div className="p-6 flex flex-col flex-1">
