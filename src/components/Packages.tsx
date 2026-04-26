@@ -4,8 +4,14 @@ import { packages } from "@/data/packages";
 
 const Packages = () => {
   return (
-    <section id="packages" className="py-20 md:py-28">
-      <div className="container">
+    <section
+      id="packages"
+      className="relative py-20 md:py-28 bg-[radial-gradient(circle_at_top_left,#4c1d95_0%,#0a0115_60%,#000000_100%)]"
+    >
+      {/* 🔥 Subtle glow effect */}
+      <div className="absolute inset-0 bg-purple-700/10 blur-3xl pointer-events-none" />
+
+      <div className="container relative">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="text-xs uppercase tracking-[0.4em] text-primary mb-3">Our Packages</p>
           <h2 className="font-serif text-4xl md:text-5xl mb-4">
