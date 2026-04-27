@@ -7,9 +7,9 @@ import { packages } from "@/data/packages";
 import { toast } from "@/hooks/use-toast";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 
-const EMAILJS_SERVICE_ID  = "YOUR_EMAILJS_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_EMAILJS_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY  = "YOUR_EMAILJS_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = "service_afiblr8";
+const EMAILJS_TEMPLATE_ID = "template_wij932n";
+const EMAILJS_PUBLIC_KEY = "48bG6Q58pniPZjuv6";
 const RECIPIENT_EMAIL     = "pharelrohit1992@gmail.com";
 
 const eventTypes = [
