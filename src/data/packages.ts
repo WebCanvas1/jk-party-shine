@@ -163,7 +163,7 @@ export const packages: Package[] = [
   {
     slug: "toddler-fun",
     name: "Toddler Fun Package",
-    price: "From $300",
+    price: "$500",
     tagline: "Adorable, safe & colourful setups for your little one's big day.",
     features: [
       "Painting station or colouring station (your theme)",
@@ -183,7 +183,7 @@ export const packages: Package[] = [
   {
     slug: "premium-drinks-bar",
     name: "Premium Drinks Bar Package",
-    price: "From $700",
+    price: "From $950",
     tagline: "A luxury drinks bar to elevate any event.",
     features: [
       "Choice of drink dispenser or slushie machine",
@@ -202,7 +202,7 @@ export const packages: Package[] = [
   {
     slug: "flower-arch",
     name: "Flower Arch Package",
-    price: "From $400",
+    price: "$1250",
     tagline: "A stunning floral arch as your event centrepiece.",
     features: [
       "Stunning flower arch backdrop (your colour theme)",
@@ -218,7 +218,7 @@ export const packages: Package[] = [
   {
     slug: "gender-reveal",
     name: "Gender Reveal Package",
-    price: "From $500",
+    price: "$650",
     tagline: "Capture the magical moment with a beautifully styled reveal.",
     features: [
       "Balloon garland backdrop (pink, blue or neutral tones)",
@@ -235,7 +235,7 @@ export const packages: Package[] = [
   {
     slug: "baby-shower",
     name: "Baby Shower Package",
-    price: "From $550",
+    price: "From $750",
     tagline: "Soft, dreamy styling to celebrate the new arrival.",
     features: [
       "Balloon garland backdrop",
