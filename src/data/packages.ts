@@ -167,9 +167,7 @@ export const packages: Package[] = [
     tagline: "Adorable, safe & colourful setups for your little one's big day.",
     features: [
       "Painting station or colouring station (your theme)",
-  "Piñatas",
-  "Chips",
-  "Fairy bread",
+  "Piñatas,Chips,Fairy bread",
   "Pass the parcel game",
   "Lollie station for guests",
   "Choice of lollie bags or party favour bags (filled with toys)",
