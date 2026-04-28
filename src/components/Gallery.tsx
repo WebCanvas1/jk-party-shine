@@ -26,13 +26,14 @@ export default function Gallery() {
       
       {/* Heading */}
       <div className="text-center mb-10 px-4">
-        <h2 className="text-4xl md:text-5xl font-bold">
-          Our Work Gallery
-        </h2>
-        <p className="text-gray-600 mt-3">
-          Some of our recent party setups and decorations
-        </p>
-      </div>
+  <h2 className="text-4xl md:text-5xl font-bold text-purple-700">
+    Our Work Gallery
+  </h2>
+
+  <p className="mt-3 font-bold text-yellow-500">
+    Some of our recent party setups and decorations
+  </p>
+</div>
 
       {/* FULL WIDTH GRID */}
       <div className="w-full px-4 md:px-8">
