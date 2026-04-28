@@ -27,13 +27,19 @@ const images = [
 const Gallery = () => {
   const [current, setCurrent] = useState(0);
 
-  const next = () => setCurrent((prev) => (prev + 1) % images.length);
-  const prev = () =>
+  const next = () => {
+    setCurrent((prev) => (prev + 1) % images.length);
+  };
+
+  const prev = () => {
     setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
-    <section className="py-20 bg-white" id="gallery">
+    <section id="gallery" className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 text-center">
+        
+        {/* Heading */}
         <p className="text-pink-500 font-semibold uppercase tracking-wide">
           Our Work
         </p>
@@ -43,32 +49,36 @@ const Gallery = () => {
         </h2>
 
         <p className="text-gray-600 max-w-2xl mx-auto mb-10">
-          A look at some of our birthday parties, kids table setups, balloons,
-          decorations and themed event styling.
+          A look at some of our setups including birthdays, kids parties,
+          balloons, decorations and themed events.
         </p>
 
+        {/* Slider */}
         <div className="relative max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl">
           <img
             src={images[current]}
-            alt={`Party setup ${current + 1}`}
+            alt={`Gallery ${current + 1}`}
             className="w-full h-[300px] md:h-[550px] object-cover"
           />
 
+          {/* Left Button */}
           <button
             onClick={prev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-11 h-11 text-2xl shadow"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black rounded-full w-10 h-10 text-xl shadow"
           >
             ‹
           </button>
 
+          {/* Right Button */}
           <button
             onClick={next}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-11 h-11 text-2xl shadow"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black rounded-full w-10 h-10 text-xl shadow"
           >
             ›
           </button>
         </div>
 
+        {/* Dots */}
         <div className="flex justify-center gap-2 mt-6 flex-wrap">
           {images.map((_, index) => (
             <button
@@ -80,6 +90,7 @@ const Gallery = () => {
             />
           ))}
         </div>
+
       </div>
     </section>
   );
